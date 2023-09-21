@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\simon.rosen2\\Documents\\Programmering med micke b\\fightspel\\duslåss\\duslåss.csproj": {}
+    "C:\\Users\\simon.rosen2\\Documents\\Programmering med micke b\\fightspel\\duslåss\\duslåss.csproj": {}
   },
   "projects": {
-    "c:\\Users\\simon.rosen2\\Documents\\Programmering med micke b\\fightspel\\duslåss\\duslåss.csproj": {
+    "C:\\Users\\simon.rosen2\\Documents\\Programmering med micke b\\fightspel\\duslåss\\duslåss.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\simon.rosen2\\Documents\\Programmering med micke b\\fightspel\\duslåss\\duslåss.csproj",
+        "projectUniqueName": "C:\\Users\\simon.rosen2\\Documents\\Programmering med micke b\\fightspel\\duslåss\\duslåss.csproj",
         "projectName": "duslåss",
-        "projectPath": "c:\\Users\\simon.rosen2\\Documents\\Programmering med micke b\\fightspel\\duslåss\\duslåss.csproj",
+        "projectPath": "C:\\Users\\simon.rosen2\\Documents\\Programmering med micke b\\fightspel\\duslåss\\duslåss.csproj",
         "packagesPath": "C:\\Users\\simon.rosen2\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\simon.rosen2\\Documents\\Programmering med micke b\\fightspel\\duslåss\\obj\\",
+        "outputPath": "C:\\Users\\simon.rosen2\\Documents\\Programmering med micke b\\fightspel\\duslåss\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
