@@ -25,15 +25,15 @@ if (string.IsNullOrEmpty(player1.name))
 }
 
 
-void selectWeapon()
+void selectWeapon(Player player)
 {
-    Console.WriteLine("Select a weapon by typing the corresponding number:");
-
     //Prints the name of every weapon in order as well as its damage range and hit chance
     for (int h = 0; h <= weapons.Count() - 1; h++)
     {
         Console.WriteLine($"{h + 1}: {weapons[h][0]} - Damage: {weapons[h][1]}-{weapons[h][2]}, {weapons[h][3]}% Hit chance");
     }
+
+    Console.WriteLine("(Leave empty to select a random weapon)");
 
     string tempWeapon;
 
@@ -42,22 +42,22 @@ void selectWeapon()
     //Forces player to type only one number
     if (tempWeapon.Length <= 1 && int.TryParse(tempWeapon, out int i))
     {
-        player1.weapon = Convert.ToInt32(tempWeapon);
-        if (player1.weapon <= weapons.Count() && player1.weapon >= 1)
+        player.weapon = Convert.ToInt32(tempWeapon);
+        if (player.weapon <= weapons.Count() && player.weapon >= 1)
         {
-            player1.weapon -= 1;
-            Console.WriteLine($"Weapon Selected: {weapons[player1.weapon][0]}");
+            player.weapon -= 1;
+            Console.WriteLine($"Weapon Selected: {weapons[player.weapon][0]}");
         }
         else
         {
             Console.WriteLine("Type only one number");
-            selectWeapon();
+            selectWeapon(player);
         }
     }
-    else
-    {
-        Console.WriteLine("Type only one number");
-        selectWeapon();
+    else if(string.IsNullOrWhiteSpace(tempWeapon)){
+        int randomWeapon = random.Next(0, weapons.Count());
+        player.weapon = randomWeapon;
+        Console.WriteLine($"\nWeapon Selected: {weapons[player.weapon][0]}");
     }
 }
 
@@ -90,7 +90,11 @@ void attack(Player attacker, Player target)
 
 
 //Promts player to select a weapon
-selectWeapon();
+Console.WriteLine("\nSelect a weapon by typing the corresponding number:");
+selectWeapon(player1);
+
+Console.WriteLine("\nSelect a weapon for your enemy:"); 
+selectWeapon(player2);
 
 //Starts game
 do
