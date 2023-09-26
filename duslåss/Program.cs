@@ -2,7 +2,7 @@
 Player player1 = new Player();
 Player player2 = new Player();
 
-string[] names = { "grebert", "haribo", "fernando", "bög", "feffe", "horunge", "mexikan", "kines", "porrlangare", "micke b", "chipspåse", "kiryu kazuma from yakuza 0" };
+string[] names = { "grebert", "haribo", "fernando", "bög", "feffe", "horunge", "mexikan", "kines", "porrlangare", "micke b", "chipspåse", "pedofil" };
 player2.name = names[random.Next(0, names.Count())];
 
 
@@ -15,7 +15,8 @@ object[][] weapons = {
     new object[] {"kaktus", 40, 60, 70},
     new object[] {"RPG", 101, 1000, 100},
     new object[] {"stekpanna", 40, 60, 60},
-    new object[] {"olw sourcream & onion chips", 30, 60, 80}
+    new object[] {"olw sourcream & onion chips", 30, 60, 80},
+    new object[] {"inga käder", 30, 40, 100}
 };
 
 
@@ -72,22 +73,24 @@ void selectWeapon(Player player)
 
 
 void attack(Player attacker, Player target)
-{   
-    string[] attackMsg = {
-        $"{attacker.name} slår sönder {target.name}s pungkulor",
-        $"",
-        $"",
-        $"{attacker.name} hyvlar sönder {target.name}s bollar",
-        $"{attacker.name} kör upp sin kaktus i {target.name}s rövhål",
-        $"",
-        $"",
-        $"",
+{
+    //Array with sentences to be displayed when attacking. Each weapon has its own uniqe sentences and they are chosen randomly
+    string[][] attackMsg = {
+        new string[] {$"{attacker.name} slår sönder {target.name}s pungkulor", $"{attacker.name} stoppar upp sina knogar i {target.name}s rövhål", $"{attacker.name} drar av {target.name}s penis och äter upp den"},
+        new string[] {$"{attacker.name} kastrerar {target.name} med sitt coola svärd", $"{attacker.name} kör upp svärdet i {target.name}s feta rumpa"},
+        new string[] {$"{attacker.name} skjuter {target.name} i rövhålet", $"{attacker.name} låtsas skjuta sig själv i huvudet ({target.name} har ett stort crush på hen och blir jätte ledsen)"},
+        new string[] {$"{attacker.name} hyvlar sönder {target.name}s skinkor", $"{attacker.name} gör skidbacke i {target.name}s ost"},
+        new string[] {$"{attacker.name} kör upp sin kaktus i {target.name}s rövhål", $"{attacker.name} gnuggar kaktusen på {target.name}s arm (det gör ont :())"},
+        new string[] {$"{attacker.name} skjuter en raket upp i {target.name}s rövhål", $"{attacker.name} låtsas skjuta {target.name} (hen blir rädd och springer hem)"},
+        new string[] {$"{attacker.name} steker {target.name}s bollar", $"{attacker.name} slår {target.name} i ansiktet med stekpannan"},
+        new string[] {$"{attacker.name} smaskar på chips riktigt högt framför {target.name}", $"{attacker.name} bjuder {target.name} på chips (de är äckliga)", $"{attacker.name} biter av {target.name}s snopp och gör en smarrig dipp av den"},
+        new string[] {$"{attacker.name} visar sin lilla pillesnopp för {target.name} ({target.name} skrattar ihjäl sig)", $"{attacker.name} går till en lekpark utan kläder????? {target.name} är chockad"}
     };
 
 
     if (attacker == player1)
     {
-        Console.ForegroundColor = ConsoleColor.White;
+        Console.ForegroundColor = ConsoleColor.Blue;
     }
     else
     {
@@ -98,7 +101,8 @@ void attack(Player attacker, Player target)
     int damage;
     int hitChance = random.Next(0, 100);
 
-    Console.Write($"{attackMsg[attacker.weapon]}");
+    //Prints a random funny sentence from the array of the players chosen weapon
+    Console.Write($"{attackMsg[attacker.weapon][random.Next(0, attackMsg[attacker.weapon].Count())]}");
 
     //If the randomly generated hit chance is higher than the hit% of the weapon then print "missed"
     if (hitChance > Convert.ToInt32(weapons[attacker.weapon][3]))
